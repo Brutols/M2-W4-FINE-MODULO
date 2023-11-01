@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Engine</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="containermain">
+      <h1>Find your dream job</h1>
+      <div class="searchBar">
+        <div class="titleWrapper">
+          <div>Find job offers</div>
+          <input
+            type="text"
+            id="inputTitle"
+            placeholder="Type job position..."
+          />
+        </div>
+        <div class="locationWrapper">
+          <div>Where?</div>
+          <input
+            type="text"
+            id="inputLocation"
+            placeholder="Type job location..."
+          />
+        </div>
+        <button type="button" id="searchButton" onclick="getInputs()">
+          cerca
+        </button>
+      </div>
+      <div class="cardWrapper">
+        <div class="counter"></div>
+        <!-- <ul class="jobsList"></ul> -->
+        <div class="jobs"></div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
