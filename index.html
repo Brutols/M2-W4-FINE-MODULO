@@ -8,32 +8,44 @@
   </head>
   <body>
     <div class="containermain">
-      <h1>Find your dream job</h1>
-      <div class="searchBar">
-        <div class="titleWrapper">
-          <div>Find job offers</div>
-          <input
-            type="text"
-            id="inputTitle"
-            placeholder="Type job position..."
-          />
-        </div>
-        <div class="locationWrapper">
-          <div>Where?</div>
-          <input
-            type="text"
-            id="inputLocation"
-            placeholder="Type job location..."
-          />
-        </div>
-        <button type="button" id="searchButton" onclick="getInputs()">
-          cerca
-        </button>
+      <div class="sideL">
+        <nav>
+          <img src="./assets/jobsearch.png" alt="logo" />
+          <ul>
+            <li>ACCOUNT</li>
+            <li>YOUR APPLICATIONS</li>
+            <li>REQUESTS</li>
+            <li>CHAT</li>
+            <li>SETTINGS</li>
+          </ul>
+        </nav>
       </div>
-      <div class="cardWrapper">
-        <div class="counter"></div>
-        <!-- <ul class="jobsList"></ul> -->
-        <div class="jobs"></div>
+      <div class="centerSection">
+        <div class="searchBar">
+          <div class="titleWrapper">
+            <div>Find job offers</div>
+            <input
+              type="text"
+              id="inputTitle"
+              placeholder="Type job position..."
+            />
+          </div>
+          <div class="locationWrapper">
+            <div>Where?</div>
+            <input
+              type="text"
+              id="inputLocation"
+              placeholder="Type job location..."
+            />
+          </div>
+          <button type="button" id="searchButton" onclick="getInputs()">
+            cerca
+          </button>
+        </div>
+        <div class="cardWrapper">
+          <div class="counter"></div>
+          <div class="jobs"></div>
+        </div>
       </div>
     </div>
 

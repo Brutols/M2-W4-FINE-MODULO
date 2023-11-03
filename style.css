@@ -1,103 +1,191 @@
+body {
+  margin: 0;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .containermain {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+}
+
+.sideL {
+  width: 20%;
+}
+
+.sideL img {
+  width: 30%;
+  align-self: center;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 90%;
+}
+
+li {
+  border-bottom: 1px solid #67c656;
+  /* border-right: 1px solid #67C656; */
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin-block: 30px;
+  padding-left: 5px;
+}
+
+.centerSection {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 20px;
 }
 
 .searchBar {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 70%;
-    aspect-ratio: 1/0.1;
-    background-color: #fff5d6;
-    border-radius: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  aspect-ratio: 1/0.1;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: white;
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    inset 0px 5px 18px 2px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000,
+    inset 0px 5px 18px 2px rgba(0, 0, 0, 0);
 }
 
 .titleWrapper {
-    width: 30%;
+  width: 30%;
 }
 
 .locationWrapper {
-    width: 30%;
+  width: 30%;
 }
 
 .searchBar button {
-    width: 12%;
-    height: 40%;
-    font-weight: bold;
-    font-size: 15px;
-    color: white;
-    background-color: #cf4307;
-    border: none;
-    border-radius: 10px;
-    margin-top: 17px;
+  width: 12%;
+  height: 40%;
+  font-weight: bold;
+  font-size: 15px;
+  color: white;
+  background-color: #67c656;
+  border: none;
+  border-radius: 10px;
+  margin-top: 17px;
 }
 
-.titleWrapper input, .locationWrapper input {
-    width: 100%;
-    padding-block: 10px;
-    padding-left: 5px;
-    border: 1px solid #60606089;
-    border-radius: 10px;
+.titleWrapper input,
+.locationWrapper input {
+  width: 100%;
+  padding-block: 10px;
+  padding-left: 5px;
+  border: 1px solid #60606089;
+  border-radius: 10px;
 }
 
-.titleWrapper div, .locationWrapper div {
-    padding-left: 5px;
+.titleWrapper div,
+.locationWrapper div {
+  padding-left: 5px;
 }
 
 .cardWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: 30px;
 }
 
 .counter {
-    align-self: flex-start;
+  align-self: flex-start;
+  margin-bottom: 10px;
 }
 
 .jobs {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-around;
-    row-gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-around;
+  row-gap: 20px;
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
-    width: 45%;
-    background-color: #fff5d6;
-    border-radius: 10px;
-    gap: 5px;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #67c656;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 45%;
+  gap: 5px;
+  padding: 10px;
 }
 
 .content {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .card img {
-    border-radius: 10px;
-    width: 20%;
-    aspect-ratio: 1/1;
+  border-radius: 10px;
+  width: 20%;
+  aspect-ratio: 1/1;
 }
 
 .jobTitle {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .jobLocation {
-    color: #606060;
+  color: #606060;
 }
 
 /* hovers, effects ecc. */
 
 .searchBar button:hover {
-    cursor: pointer;
-    background-color: #c92800;
+  cursor: pointer;
+}
+
+li:hover,
+.card:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  animation: boxHover 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.searchBar button:hover {
+  animation: buttonHover 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes boxHover {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(2px, -2px);
+  }
+}
+
+@keyframes buttonHover {
+  0% {
+    width: 12%;
+    height: 40%;
+  }
+  100% {
+    width: 13%;
+    height: 42%;
+  }
 }

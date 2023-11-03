@@ -85,27 +85,28 @@ const jobs = [
   },
 ];
 
-// document.querySelector("#searchButton").addEventListener("click", getInputs())
-
 let foundJobs = [];
 let counter = 0;
 
+const getEnterInputs = function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    getInputs();
+  }
+}
+
 const enterInputs = document.querySelectorAll(".titleWrapper input, .locationWrapper input")
 for (let i = 0; i < enterInputs.length; i++) {
-  enterInputs[i].addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      getInputs();
-    }
-  })
+  enterInputs[i].addEventListener("keypress", getEnterInputs)
 }
+
 
 const getInputs = function () {
   let inputLocation = document.querySelector("#inputLocation").value;
   let inputTitle = document.querySelector("#inputTitle").value;
-  jobFinder(inputLocation, inputTitle);
   counter = 0;
   foundJobs = [];
+  jobFinder(inputLocation, inputTitle);
 };
 
 const jobFinder = function (location, title) {
@@ -116,16 +117,16 @@ const jobFinder = function (location, title) {
       if (
         jobs[i].location.toLowerCase().includes(location.toLowerCase()) &&
         jobs[i].title.toLowerCase().includes(title.toLowerCase())
-      ) {
-        foundJobs.push(jobs[i]);
+        ) {
+          foundJobs.push(jobs[i]);
+        }
+      }
+      if (foundJobs.length > 0) {
+        counter = foundJobs.length;
       }
     }
-    if (foundJobs.length > 0) {
-      counter = foundJobs.length;
-    }
-  }
-  showResults();
-};
+    showResults();
+  };
 
 const showResults = function () {
   let jobsList = document.querySelector(".jobs");
@@ -134,14 +135,24 @@ const showResults = function () {
   for (let i = 0; i < foundJobs.length; i++) {
     jobsList.innerHTML += `
     <div class="card">
-      <div class="content">
-        <img src="./assets/unnamed.jpg" alt="jobimg" />
-        <div class="jobTitle">${foundJobs[i].title}</div>
-      </div>
-        <div class="jobLocation">${foundJobs[i].location}</div>
+    <div class="content">
+    <img src="./assets/jobsearch.png" alt="jobimg" />
+    <div class="jobTitle">${foundJobs[i].title}</div>
+    </div>
+    <div class="jobLocation">${foundJobs[i].location}</div>
     </div>`;
   }
 };
 
-// risultato in oggetto ??
-// result e count nella funzione ??
+const defaultJobs = function () {
+  for (let i = 0; i < jobs.length; i++) {
+    foundJobs.push(jobs[i]);
+  }
+  if (foundJobs.length > 0) {
+    counter = foundJobs.length;
+  }
+  showResults()
+}
+defaultJobs()
+
+//! reset input testo on search
