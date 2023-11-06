@@ -88,18 +88,19 @@ const jobs = [
 let foundJobs = [];
 let counter = 0;
 
-const getEnterInputs = function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
+const getEnterInputs = function (ev) {
+  if (ev.key === "Enter") {
+    ev.preventDefault();
     getInputs();
   }
-}
+};
 
-const enterInputs = document.querySelectorAll(".titleWrapper input, .locationWrapper input")
+const enterInputs = document.querySelectorAll(
+  ".titleWrapper input, .locationWrapper input"
+);
 for (let i = 0; i < enterInputs.length; i++) {
-  enterInputs[i].addEventListener("keypress", getEnterInputs)
+  enterInputs[i].addEventListener("keypress", getEnterInputs);
 }
-
 
 const getInputs = function () {
   let inputLocation = document.querySelector("#inputLocation").value;
@@ -117,16 +118,16 @@ const jobFinder = function (location, title) {
       if (
         jobs[i].location.toLowerCase().includes(location.toLowerCase()) &&
         jobs[i].title.toLowerCase().includes(title.toLowerCase())
-        ) {
-          foundJobs.push(jobs[i]);
-        }
-      }
-      if (foundJobs.length > 0) {
-        counter = foundJobs.length;
+      ) {
+        foundJobs.push(jobs[i]);
       }
     }
-    showResults();
-  };
+    if (foundJobs.length > 0) {
+      counter = foundJobs.length;
+    }
+  }
+  showResults();
+};
 
 const showResults = function () {
   let jobsList = document.querySelector(".jobs");
@@ -151,8 +152,6 @@ const defaultJobs = function () {
   if (foundJobs.length > 0) {
     counter = foundJobs.length;
   }
-  showResults()
-}
-defaultJobs()
-
-//! reset input testo on search
+  showResults();
+};
+defaultJobs();
